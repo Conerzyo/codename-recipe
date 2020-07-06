@@ -1,8 +1,9 @@
-export interface Recipe {
-  id: string | number; // TODO will be changed later
-  createAt: string | Date;
-  name: string;
-  description?: string;
-}
+import { RecipeStep, RecipeIngredients } from "../types/types";
 
-export default Recipe;
+export interface CreateRecipeDto {
+  name: string;
+  description: string;
+  steps?: RecipeStep[];
+  ingredients?: RecipeIngredients[];
+  servings?: number;
+}

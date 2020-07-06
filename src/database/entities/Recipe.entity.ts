@@ -1,9 +1,13 @@
-import { Entity, PrimaryColumn, CreateDateColumn, Column } from "typeorm";
-
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  Column,
+} from "typeorm";
 @Entity()
 export class Recipe {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -11,6 +15,15 @@ export class Recipe {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
+
+  @Column({ nullable: true })
+  servings: number;
+
+  @Column({ nullable: true })
+  steps: string;
+
+  @Column({ nullable: true })
+  ingredients: string;
 }
