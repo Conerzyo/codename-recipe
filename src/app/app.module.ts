@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
-import { Recipe } from './database/entities/Recipe.entity';
-import { startSeeding } from './database/seeds/seeds';
+import { Recipe } from '../database/entities/Recipe.entity';
+import { startSeeding } from '../database/seeds/seeds';
 import { Connection } from 'typeorm';
-import { RecipesModule } from './recipes/recipes.module';
+import { RecipesModule } from '../recipes/recipes.module';
 
 const typeormModule = TypeOrmModule.forRoot({
   type: 'postgres',
