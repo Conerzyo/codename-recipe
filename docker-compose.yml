@@ -5,7 +5,8 @@ services:
     container_name: main
     build:
       context: .
-      target: development
+      args:
+        - NODE_ENV=development
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -18,13 +19,8 @@ services:
     networks:
       - webnet
     depends_on:
-      - redis
       - postgres
-  redis:
-    container_name: redis
-    image: redis:5
-    networks:
-      - webnet
+
   postgres:
     container_name: postgres
     image: postgres:12
