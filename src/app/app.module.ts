@@ -9,9 +9,10 @@ import { User } from "src/database/entities/User.entity";
 import { AppController } from "./app.controller";
 import { AuthService } from "src/auth/auth.service";
 import { UsersService } from "src/users/users.service";
-import { JwtService } from "@nestjs/jwt";
+import { JwtService, JwtModule } from "@nestjs/jwt";
 import { AuthModule } from "src/auth/auth.module";
 import { UsersModule } from "src/users/users.module";
+import { jwtConstants } from "src/code/constants";
 
 const typeormModule = TypeOrmModule.forRoot({
   type: "postgres",
@@ -23,7 +24,7 @@ const typeormModule = TypeOrmModule.forRoot({
   cache: true,
 });
 @Module({
-  imports: [typeormModule, RecipesModule, AuthModule],
+  imports: [typeormModule, RecipesModule, AuthModule, UsersModule],
   providers: [AppService],
   controllers: [AppController],
 })

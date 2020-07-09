@@ -268,15 +268,15 @@ export const startSeeding = async (connection: Connection) => {
     }
   }
 
-  try {
-    const findOneOptions = (user) => ({ where: { email: user.email } });
-    await seeder(
-      connection,
-      User,
-      findOneOptions(defaultUsers[0]),
-      defaultUsers[0]
-    );
-  } catch (error) {
-    console.error(`Seeding error: ${error}.`);
-  }
+  // try {
+  //   const findOneOptions = (user) => ({ where: { email: user.email } });
+  //   await seeder(
+  //     connection,
+  //     User,
+  //     findOneOptions(defaultUsers[0]),
+  //     defaultUsers[0]
+  //   );
+  // } catch (error) {
+  //   console.error(`Seeding error: ${error}.`);
+  // }
 };
